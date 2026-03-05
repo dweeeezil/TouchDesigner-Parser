@@ -19,7 +19,7 @@ class TDProject:
         self.nodes[node.name] = node
 
 
-def parse_parameters(path):
+def parse_parameters(path): # Parses parameters for a given path to a node
 
     params = {}
 
@@ -35,7 +35,7 @@ def parse_parameters(path):
     return params
 
 
-def find_script(folder, node_name):
+def find_script(folder, node_name): #Finds the script files for a given node
 
     script_extensions = [".text", ".script", ".py"]
 
@@ -49,25 +49,21 @@ def find_script(folder, node_name):
     return None
 
 
-def parse_toe_directory(root_dir):
+def parse_toe_directory(root_dir): # Opens project directory, creates node objects for project
 
     project = TDProject()
 
     root_dir = Path(root_dir).expanduser()
 
     for root, dirs, files in os.walk(root_dir):
-
         for file in files:
 
             if not file.endswith(".n"):
                 continue
 
             node_name = file[:-2]
-
             node = TDNode(node_name, root)
-
             parm_file = os.path.join(root, node_name + ".parm")
-
             node.parameters = parse_parameters(parm_file)
 
             node.script = find_script(root, node_name)

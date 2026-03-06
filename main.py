@@ -91,9 +91,7 @@ def project_to_json(project):
 
 
 def main():
-
     project_path = Path.home() / "Desktop/TDA_lights/TDA_lights.toe.dir"
-
     project = parse_toe_directory(project_path)
 
     print("Nodes parsed:", len(project.nodes))

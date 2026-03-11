@@ -13,3 +13,7 @@ class TDNode:
         self.color = (0, 0, 0)
         self.parameters = {}
         self.script = None
+
+
+    def __str__(self):
+        return f'{self.name}: {self.folder}'

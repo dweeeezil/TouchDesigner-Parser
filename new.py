@@ -19,13 +19,12 @@ def parseProjectDirectory(root_dir):
             if not file.endswith(".n"):
                 continue
 
-            node_name = file[:-2]
-            node = TDNode(node_name, root)
-            print(file)
+            node = TDNode(file[:-2], root)
+            print(node)
 
 
     return
 
 
 
-parseProjectDirectory('')
+parseProjectDirectory('/Users/alexkelly/Desktop/In Flux Exhibit/TDA_lights/TDA_lights.toe.dir')
